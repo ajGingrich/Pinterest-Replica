@@ -1,4 +1,4 @@
-# Book Trading
+# Build a Pinterest Clone
 
 Objective 
 ------
