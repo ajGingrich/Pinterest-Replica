@@ -16,4 +16,4 @@ User Stories
 * As an unauthenticated user, I can browse other users' walls of images.
 * As an authenticated user, if I upload an image that is broken, it will be replaced by a placeholder image. (can use jQuery broken image detection)
 
-Check out the app at [https://booktrading320.herokuapp.com/](https://booktrading320.herokuapp.com/)
+Check out the app at [https://pinterest320.herokuapp.com/](https://pinterest320.herokuapp.com/)
