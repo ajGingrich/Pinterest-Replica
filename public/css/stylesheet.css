@@ -31,7 +31,8 @@ div h4 {
   margin: 20px 0 0 20px; }
 
 .nav-container {
-  background-color: #a7b5ba; }
+  background-color: #a7b5ba;
+  margin-bottom: 20px; }
 
 nav p {
   margin: 16px 0 5px 0;
@@ -101,5 +102,64 @@ footer p:nth-child(2) {
 footer p:nth-child(3) {
   clear: both;
   margin-top: -5px; }
+
+/********** Masonry ***********/
+/*.grid-item-content {
+  height: 280px;
+  background: #e2dbd9;
+  border: 2px solid hsla(0, 0%, 0%, 0.5);
+  border-radius: 5px;
+  margin: 0 0 5px 0;
+  word-wrap: break-word;
+}*/
+.masonry {
+  /* Masonry container */
+  column-count: 4;
+  column-gap: 1em; }
+
+.item {
+  /* Masonry bricks or child elements */
+  background-color: #eee;
+  display: inline-block;
+  margin: 0 0 1em;
+  width: 100%; }
+
+.mainImage {
+  max-width: 100%;
+  height: auto;
+  display: block; }
+
+.heartImage {
+  height: 20px;
+  width: auto; }
+
+.item .btn {
+  margin: -25px -24px 0 0; }
+
+.wrapper {
+  width: 95%;
+  margin: 1.5em auto; }
+
+.masonry {
+  margin: 1.5em 0;
+  padding: 0;
+  -moz-column-gap: 1.5em;
+  -webkit-column-gap: 1.5em;
+  column-gap: 1em;
+  font-size: .85em; }
+
+.item {
+  display: inline-block;
+  background: #fff;
+  padding: 1.5em;
+  margin: 0 0 1.5em;
+  width: 100%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.18);
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px; }
 
 /*# sourceMappingURL=stylesheet.css.map */
