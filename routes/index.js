@@ -10,8 +10,8 @@ router.get('/', pictureHandler.getAllPics, function(req, res) {
 });
 
 //myPics
-router.get('/myPics', isLoggedIn, function(req, res) {
-    res.render('userPics', { user: req.user });
+router.get('/myPics', isLoggedIn, pictureHandler.getUserPics, function(req, res) {
+    res.render('userPics');
 });
 
 //allUsers
@@ -19,15 +19,15 @@ router.get('/allUsers', function(req, res) {
     res.render('allUsers');
 });
 
-//myPics
-/*router.post('/addPic', isLoggedIn, pictureHandler.addPic, function(req, res) {
-    res.render('userPics', { user: req.user });
-});*/
+//add a picture
+router.post('/addPic', isLoggedIn, pictureHandler.addPic, pictureHandler.getUserPics, function(req, res) {
+    res.render('userPics');
+});
 
 ///test and delete late
-router.post('/addPic', pictureHandler.addPic, pictureHandler.getAllPics, function(req, res) {
+/*router.post('/addPic', pictureHandler.addPic, pictureHandler.getAllPics, function(req, res) {
  res.render('index');
-});
+});*/
 
 //logout
 router.get('/logout', function(req, res) {

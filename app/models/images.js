@@ -8,7 +8,7 @@ var Image = new Schema({
     description: String,
     userId: String,
     username: String,
-    likes: Number
+    likes: Array
 });
 
 module.exports = mongoose.model('Image', Image);

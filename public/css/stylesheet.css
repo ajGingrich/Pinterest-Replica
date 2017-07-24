@@ -138,10 +138,10 @@ footer p:nth-child(3) {
 
 .wrapper {
   width: 95%;
-  margin: 1.5em auto; }
+  margin: 1em auto; }
 
 .masonry {
-  margin: 1.5em 0;
+  margin: 1em 0;
   padding: 0;
   -moz-column-gap: 1.5em;
   -webkit-column-gap: 1.5em;
