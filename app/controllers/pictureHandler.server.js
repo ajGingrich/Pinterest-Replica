@@ -38,7 +38,7 @@ function pictureHandler () {
     };
 
     this.getAllPics = function(req, res, next) {
-
+        
         res.locals.allPics = [];
 
         //find all the pics
@@ -116,7 +116,7 @@ function pictureHandler () {
 
         var userId = req.user._id;
         var picId = req.params.picId;
-        
+
         //add user to picture's like array
         Image.findByIdAndUpdate(picId, { $pull: { likes: userId }}, {new: true}, function(err, doc){
             if (err) throw err;

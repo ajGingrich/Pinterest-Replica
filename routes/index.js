@@ -35,7 +35,7 @@ router.get('/dislikePic/:picId', isLoggedIn, pictureHandler.dislikePic);
 //logout
 router.get('/logout', function(req, res) {
     req.logout();
-    res.redirect('/myPics', {user: req.user});
+    res.redirect('/');
 });
 
 //authentications for facebook, twitter and google.
@@ -68,7 +68,6 @@ module.exports = router;
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
         return next();
-    //console.log(req.path)
 
     res.locals.allPics = [];
     Image.find({}, function(err, doc) {
