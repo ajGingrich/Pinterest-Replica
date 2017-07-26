@@ -16,7 +16,9 @@ body {
   margin: 0;
   padding: 0;
   text-align: center;
-  background-color: #e3e8ef; }
+  /*background-color: $backgroundColor;*/
+  background: url(../img/blue_background.jpg);
+  background-size: cover; }
 
 /****** Nav Styling ******/
 nav {
@@ -34,8 +36,13 @@ div h4 {
   margin-top: -20px; }
 
 .nav-container {
-  background-color: #a7b5ba;
+  background: url(../img/grey_background.jpg);
+  background-size: cover;
   margin-bottom: 20px; }
+
+.nav-container a,
+.nav-container p {
+  color: black; }
 
 nav p {
   margin: 16px 0 5px 0;
@@ -48,11 +55,9 @@ nav {
   text-decoration: none;
   padding: 6px;
   margin: 0;
-  color: #727272;
   display: inline; }
 
 .menu:visited {
-  color: #727272;
   text-decoration: none; }
 
 .menu:hover {
@@ -81,30 +86,7 @@ nav {
 nav a ~ p {
   margin: 0;
   padding: 0;
-  display: inline;
-  color: #010a19; }
-
-/****** Footer Styling ******/
-footer {
-  background-color: #a7b5ba; }
-
-footer a {
-  color: black; }
-
-footer h5 {
-  float: left;
-  margin: 10px 0 0 20px; }
-
-footer p {
-  float: right;
-  margin-right: 20px; }
-
-footer p:nth-child(2) {
-  margin-top: 10px; }
-
-footer p:nth-child(3) {
-  clear: both;
-  margin-top: -5px; }
+  display: inline; }
 
 /********** Masonry ***********/
 .masonry {

@@ -3,7 +3,6 @@ var passport = require('passport');
 var router = express.Router();
 var PictureHandler = require('../app/controllers/pictureHandler.server');
 var pictureHandler = new PictureHandler();
-var Image = require('../app/models/images.js');
 
 //home page
 router.get('/', pictureHandler.getAllPics, function(req, res) {
