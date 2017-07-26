@@ -9,6 +9,8 @@
     <div class="alert alert-danger"><p><%= message %></p></div>
     <% } %>
 
+
+    <div class="container-fluid">
     <div class="masonry">
         <% if (allPics) { %>
         <% for (var i=0; i< allPics.length; i++) { %>
@@ -17,7 +19,7 @@
             <img class="mainImage" onerror="defaultImage(this)" src="<%- allPics[i].link %>">
             <h5><%- allPics[i].description %></h5>
               <div>
-                  <h5 style="float: left; margin: 0"><%- allPics[i].username %></h5>
+                  <h5 style="float: left; margin: 0"><a href="userPage/<%- allPics[i].userId%>"><%- allPics[i].username %></a></h5>
                   <% if (user) { %>
                     <% if (allPics[i].likes.indexOf(user._id) == -1) { %>
                         <h5 style="float: right; margin: 0"><a href="/likePic/<%- allPics[i]._id %>"><img class="heartImage" src="/img/heartEmpty.png"></a> <%- allPics[i].likes.length %></h5>
@@ -31,6 +33,7 @@
           </div>
         <% } %>
         <% } %>
+    </div>
     </div>
     <% include partials/modal.ejs %>
     <% include partials/footer.ejs %>

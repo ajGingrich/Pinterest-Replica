@@ -7,16 +7,27 @@ var Image = require('../app/models/images.js');
 
 //home page
 router.get('/', pictureHandler.getAllPics, function(req, res) {
-    res.render('index', {user: req.user});
+    res.render('index', {user: req.user, message: req.flash('message')});
 });
 
 //myPics
 router.get('/myPics', isLoggedIn, pictureHandler.getUserPics, function(req, res) {
     res.render('userPics', {user: req.user});
 });
+//random user Pics
+router.get('/userPage/:individualId', pictureHandler.getIndividualPics, function(req, res) {
+    res.render('userPage', {user: req.user});
+});
+
+//Flash
+router.get('/flash', function(req, res){
+    // Set a flash message by passing the key, followed by the value, to req.flash().
+    req.flash('message', 'You have to be logged in');
+    res.redirect('/');
+});
 
 //allUsers
-router.get('/allUsers', function(req, res) {
+router.get('/allUsers', pictureHandler.getAllUsers, function(req, res) {
     res.render('allUsers', {user: req.user});
 });
 
@@ -69,11 +80,5 @@ function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
         return next();
 
-    res.locals.allPics = [];
-    Image.find({}, function(err, doc) {
-        if (err) throw err;
-        res.locals.allPics = doc;
-        res.render('index', {message: 'You need to be logged in', user: req.user});
-    });
-
+    res.redirect('/flash');
 }

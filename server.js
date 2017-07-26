@@ -33,11 +33,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({secret:'MySecret'}));
 app.use(flash());
 
-app.use(function(req, res, next){
-    res.locals.message = req.flash();
-    next();
-});
-
 app.use(passport.initialize());
 app.use(passport.session());
 

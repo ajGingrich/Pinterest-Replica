@@ -4,6 +4,7 @@
   <body>
     <% include partials/nav.ejs %>
     <h4>Your Pictures</h4>
+    <div class="container-fluid">
     <div class="masonry">
         <% if (userPics) { %>
         <% for (var i=0; i< userPics.length; i++) { %>
@@ -26,6 +27,7 @@
           </div>
         <% } %>
         <% } %>
+    </div>
     </div>
     <% include partials/modal.ejs %>
     <% include partials/footer.ejs %>

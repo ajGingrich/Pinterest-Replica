@@ -135,20 +135,18 @@ footer p:nth-child(3) {
 /********** Masonry ***********/
 .masonry { /* Masonry container */
   column-count: 4;
-  column-gap: 1em;
-}
-
-.item { /* Masonry bricks or child elements */
-  background-color: #eee;
-  display: inline-block;
-  margin: 0 0 1em;
-  width: 100%;
+  column-gap: 1.5em;
+  margin: 1.5em 0;
+  padding: 0;
+  -moz-column-gap: 1.5em;
+  -webkit-column-gap: 1.5em;
+  font-size: .85em;
 }
 
 .mainImage {
-   max-width: 100%;
-   height: auto;
-   display: block;
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 .heartImage {
   height: 20px;
@@ -161,16 +159,7 @@ footer p:nth-child(3) {
 
 .wrapper {
   width: 95%;
-  margin: 1em auto;
-}
-
-.masonry {
-  margin: 1em 0;
-  padding: 0;
-  -moz-column-gap: 1.5em;
-  -webkit-column-gap: 1.5em;
-  column-gap: 1em;
-  font-size: .85em;
+  margin: 3em auto;
 }
 
 .item {
@@ -188,4 +177,7 @@ footer p:nth-child(3) {
   -webkit-border-radius: 3px;
 }
 
+.item a {
+  color: black
+}
 

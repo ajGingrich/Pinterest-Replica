@@ -38,8 +38,6 @@ function pictureHandler () {
     };
 
     this.getAllPics = function(req, res, next) {
-        
-        res.locals.allPics = [];
 
         //find all the pics
         Image.find({}, function(err, doc) {
@@ -51,12 +49,23 @@ function pictureHandler () {
     };
 
     this.getUserPics = function(req, res, next) {
-        res.locals.userPics = [];
 
         //find all user's pics
         Image.find({userId: req.user._id}, function(err, doc) {
             if (err) throw err;
             res.locals.userPics = doc;
+            return next();
+        });
+    };
+
+    this.getIndividualPics = function(req, res, next) {
+
+        var individualId = req.params.individualId;
+
+        //find all user's pics
+        Image.find({userId: individualId}, function(err, doc) {
+            if (err) throw err;
+            res.locals.individualPics = doc;
             return next();
         });
     };
@@ -101,15 +110,28 @@ function pictureHandler () {
 
             //redirect back to where it came from
             if (req.headers.referer.indexOf('myPics') != -1) {
-                res.locals.userPics = doc;
+                //res.locals.userPics = doc;
                 res.redirect('/myPics');
             }
+            else if (req.headers.referer.indexOf('userPage') != -1) {
+
+                ///get url to indicate which user they are viewing
+                var ref = req.headers.referer;
+                //get index in order to slice userId
+                var indexBeg = ref.indexOf('userPage/');
+                //add 9 because index starts at beginning
+                var sliceIndex = indexBeg + 9;
+                //perform the slice
+                var userId = ref.slice(sliceIndex);
+
+                //redirect to same page
+                res.redirect('/userPage/' + userId);
+            }
             else {
-                res.locals.allPics = doc;
+                //res.locals.allPics = doc;
                 res.redirect('/');
             }
         })
-
     };
 
     this.dislikePic = function(req, res, next) {
@@ -123,14 +145,36 @@ function pictureHandler () {
 
             //redirect back to where it came from
             if (req.headers.referer.indexOf('myPics') != -1) {
-                res.locals.userPics = doc;
                 res.redirect('/myPics');
             }
+            else if (req.headers.referer.indexOf('userPage') != -1) {
+
+                ///get url to indicate which user they are viewing
+                var ref = req.headers.referer;
+                //get index in order to slice userId
+                var indexBeg = ref.indexOf('userPage/');
+                //add 9 because index starts at beginning
+                var sliceIndex = indexBeg + 9;
+                //perform the slice
+                var userId = ref.slice(sliceIndex);
+
+                //redirect to same page
+                res.redirect('/userPage/' + userId);
+            }
             else {
-                res.locals.allPics = doc;
                 res.redirect('/');
             }
         })
+    };
+
+    this.getAllUsers = function(req, res, next) {
+
+        //find all the users
+        Users.find({}, function(err, doc) {
+            if (err) throw err;
+            res.locals.allUsers = doc;
+            return next();
+        });
     };
 
 
